@@ -1,0 +1,34 @@
+TWRP device tree for Sony Xperia 1 II (pdx203)
+========================================================
+
+Based on twrp_sony_pdx201, thanks sjllls
+
+** Building **
+
+Do once (fixes an error during repo init):
+```
+mkdir -p ~/.bin
+PATH="${HOME}/.bin:${PATH}"
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+rx ~/.bin/repo
+```
+
+```
+repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-10.0
+```
+
+Then, place `pdx203.xml` in `.repo/local_manifests/`, then run
+
+```
+repo sync -c
+source build/envsetup.sh
+lunch omni_pdx203-userdebug
+mka recoveryimage
+```
+
+`out/target/product/pdx203/recovery.img` will be the fastbootable/flashable image.
+
+```
+sudo fastboot flash recovery out/target/product/pdx203/recovery.img
+sudo fastboot reboot recovery
+```

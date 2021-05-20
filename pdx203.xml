@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project path="device/sony/pdx203" remote="github" name="shinyquagsire23/twrp_sony_pdx203" revision="twrp-10.0" />
+</manifest>
